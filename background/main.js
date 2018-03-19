@@ -3,9 +3,9 @@
 define([
     'background/tab-chooser',
     'background/adapters/mpris2',
-    'background/adapters/rainmeter',
+    'background/adapters/rubi_win',
     'background/utils',
-], (chooser, Mpris2Adapter, RainmeterAdapter, Utils) => {
+], (chooser, Mpris2Adapter, RubiWInAdapter, Utils) => {
     const SUPPORTED_OSES = ['linux', 'openbsd', 'win'];
 
     setupAppAdapter();
@@ -42,7 +42,7 @@ define([
             if (['linux', 'openbsd'].includes(name)) {
                 return new Mpris2Adapter();
             } else if (name === 'win') {
-                return new RainmeterAdapter();
+                return new RubiWInAdapter();
             }
 
             throw new Error('Unable to get application adapter');
